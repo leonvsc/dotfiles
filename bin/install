@@ -2,7 +2,7 @@
 set -e
 
 # Setup hosts file
-if ! [ -z $(grep "$HOSTNAME" /etc/hosts) ]; then 
+if [ ! -z $(grep "$HOSTNAME" /etc/hosts) ]; then 
     cat >> /etc/hosts<< EOF
 127.0.0.1        localhost
 ::1              localhost
