@@ -10,14 +10,14 @@ if [ "$(grep -ci "$HOSTNAME" /etc/hosts)" = "0" ]; then
 EOF
 fi
 
-# # Install git
-# if ! [ -x "$(command -v git)" ]; then
-#     echo "Installing git"
-#     sudo pacman -S git --noconfirm
-# fi
+# Install git
+if ! [ -x "$(command -v git)" ]; then
+    echo "Installing git"
+    sudo pacman -S git --noconfirm
+fi
 
-# # Install i3-gaps
-# if ! [ -x "$(command -v i3)" ]; then
-#     echo "Installing i3-gaps"
-#     sudo pacman -S i3-gaps --noconfirm
-# fi
+# Install i3-gaps
+if ! [ -x "$(command -v i3)" ]; then
+    echo "Installing i3-gaps"
+    sudo pacman -S i3-gaps --noconfirm
+fi
