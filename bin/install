@@ -2,15 +2,13 @@
 set -e
 
 # Setup hosts file
-if [ ! -z $(grep "$HOSTNAME" /etc/hosts) ]; then 
+if [ "$(grep -ci "$HOSTNAME" /etc/hosts)" = "0" ]; then
     cat >> /etc/hosts<< EOF
 127.0.0.1        localhost
 ::1              localhost
 127.0.1.1        $HOSTNAME
 EOF
 fi
-
-
 
 # # Install git
 # if ! [ -x "$(command -v git)" ]; then
