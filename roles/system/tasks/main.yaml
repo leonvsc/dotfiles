@@ -1,0 +1,20 @@
+---
+- name: Install
+  ansible.builtin.package:
+      name:
+          - git
+      state: latest
+  become: yes
+
+- name: Set sudo
+  ansible.builtin.replace:
+      path: "/etc/sudoers"
+      regexp: '\%wheel ALL=\(ALL\) ALL'
+      replace: "%wheel ALL=(ALL) NOPASSWD: ALL"
+  become: yes
+
+- name: Set hosts
+  ansible.builtin.template:
+      dest: "/etc/hosts"
+      src: hosts.j2
+  become: yes
