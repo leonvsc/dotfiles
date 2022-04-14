@@ -1,0 +1,7 @@
+---
+- name: Install
+  ansible.builtin.package:
+      name:
+          - i3-gaps
+      state: latest
+  become: yes
