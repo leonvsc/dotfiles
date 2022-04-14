@@ -1,0 +1,6 @@
+default_roles:
+    - system
+    - reflector
+    - xorg
+    - lightdm
+    - i3
