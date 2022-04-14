@@ -1,0 +1,6 @@
+---
+- name: Enable timer unit for reflector
+  ansible.builtin.systemd:
+      name: reflector.timer
+      state: started
+      enabled: yes
