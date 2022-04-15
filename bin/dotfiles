@@ -11,6 +11,11 @@ if ! [ -x "$(command -v ansible)" ]; then
   sudo pacman -S ansible --noconfirm
 fi
 
+# Install Git
+if ! [ -x "$(command -v git)" ]; then
+  sudo pacman -S git --noconfirm
+fi
+
 # # Generate SSH keys
 # if ! [[ -f "$SSH_DIR/authorized_keys" ]]; then
 #   mkdir -p "$SSH_DIR"
