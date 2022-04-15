@@ -1,0 +1,6 @@
+- name: Install
+  ansible.builtin.package:
+      name:
+          - lxappearance
+      state: latest
+  become: yes
