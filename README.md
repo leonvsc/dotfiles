@@ -20,5 +20,5 @@ We can use my script to install all the necessary programs.
 Use the following command:
 
 ```bash
-$ sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/leonvsc/dotfiles/main/bin/dotfiles)"
+$ bash -c "$(curl -fsSL https://raw.githubusercontent.com/leonvsc/dotfiles/main/bin/dotfiles)"
 ```
