@@ -2,5 +2,11 @@ default_roles:
     - system
     - reflector
     - xorg
+    - picom
     - lightdm
     - i3
+    - lxappearance
+    - rofi
+    - alacritty
+    - nitrogen
+    - firefox
