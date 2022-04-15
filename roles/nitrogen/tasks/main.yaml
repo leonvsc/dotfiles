@@ -5,7 +5,6 @@
           - nitrogen
       state: latest
   become: yes
-
-- name: Restore
-  command: nitrogen --restore
-  when: background.changed
+# - name: Restore
+#   command: nitrogen --restore
+#   when: background.changed
