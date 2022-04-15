@@ -3,6 +3,7 @@
   ansible.builtin.package:
       name:
           - reflector
+          - rsync
       state: latest
   become: yes
 
