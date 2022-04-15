@@ -1,0 +1,11 @@
+---
+- name: Install
+  ansible.builtin.package:
+      name:
+          - nitrogen
+      state: latest
+  become: yes
+
+- name: Restore
+  command: nitrogen --restore
+  when: background.changed
