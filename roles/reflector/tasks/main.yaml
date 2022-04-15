@@ -9,6 +9,7 @@
 
 - name: Run reflector
   ansible.builtin.command: reflector --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
+  become: yes
 
 - name: Enable timer unit for reflector
   ansible.builtin.systemd:
