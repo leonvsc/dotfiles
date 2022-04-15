@@ -1,4 +1,14 @@
 ---
+- name: Install
+  ansible.builtin.package:
+      name:
+          - reflector
+      state: latest
+  become: yes
+
+- name: Run reflector
+  ansible.builtin.command: reflector --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
+
 - name: Enable timer unit for reflector
   ansible.builtin.systemd:
       name: reflector.timer
