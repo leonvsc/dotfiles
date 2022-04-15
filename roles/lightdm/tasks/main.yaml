@@ -3,6 +3,11 @@
   ansible.builtin.package:
       name:
           - lightdm
-          - lightdm-gtk-greeter
+          - lightdm-slick-greeter
       state: latest
   become: yes
+
+- name: Enable lightdm service
+  ansible.builtin.systemd:
+      name: lightdm
+      enabled: yes
