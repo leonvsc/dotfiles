@@ -11,3 +11,4 @@
   ansible.builtin.systemd:
       name: lightdm
       enabled: yes
+  become: yes
