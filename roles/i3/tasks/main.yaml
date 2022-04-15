@@ -2,6 +2,9 @@
 - name: Install
   ansible.builtin.package:
       name:
-          - i3
+          - i3-gaps
+          - i3lock
+          - i3status
+          - i3blocks
       state: latest
   become: yes
