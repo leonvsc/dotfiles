@@ -12,3 +12,9 @@
       name: lightdm
       enabled: yes
   become: yes
+
+- name: Configuration
+  ansible.builtin.template:
+      dest: "/etc/lightdm/lightdm.conf"
+      src: "lightdm.conf.j2"
+  become: yes
