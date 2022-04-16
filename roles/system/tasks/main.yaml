@@ -6,12 +6,20 @@
       state: latest
   become: yes
 
+# - name: Set sudo
+#   ansible.builtin.replace:
+#       path: "/etc/sudoers"
+#       regexp: '\%wheel ALL=\(ALL\) ALL'
+#       replace: "%wheel ALL=(ALL) NOPASSWD: ALL"
+#   become: yes
+
 - name: Set sudo
-  ansible.builtin.replace:
-      path: "/etc/sudoers"
-      regexp: '\%wheel ALL=\(ALL\) ALL'
-      replace: "%wheel ALL=(ALL) NOPASSWD: ALL"
-  become: yes
+    copy:
+      dest: "/etc/sudoers.d/10-installer"
+      content: |
+        %wheel ALL=\(ALL\) ALL
+    become: yes
+        
 
 - name: Set hosts
   ansible.builtin.template:
