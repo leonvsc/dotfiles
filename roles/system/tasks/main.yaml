@@ -15,9 +15,9 @@
 
 - name: Set sudo
     copy:
-      dest: "/etc/sudoers.d/10-installer"
-      content: |
-        %wheel ALL=\(ALL\) ALL
+        dest: "/etc/sudoers.d/10-installer"
+        content: |
+          %wheel ALL=\(ALL\) ALL
     become: yes
         
 
