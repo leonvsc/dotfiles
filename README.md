@@ -28,7 +28,14 @@ This will make sure that users from the wheel group can execute sudo commands. O
 ## Install the necessary programs
 
 Now we can install my script to install all the necessary programs.
-Use the following command:
+
+First update the repositories with:
+
+```bash
+sudo pacman -Sy
+```
+
+Start my script with:
 
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/leonvsc/dotfiles/main/bin/install)"
