@@ -10,7 +10,7 @@
   ansible.builtin.git:
       clone: yes
       depth: 1
-      dest: "{{ ansible_user_dir }}/repo/yay/"
+      dest: "{{ ansible_user_dir }}/Development/repository/github.com/yay/"
       force: yes
       repo: https://aur.archlinux.org/yay.git
       single_branch: yes
@@ -22,5 +22,5 @@
   become: false
   command: makepkg --noconfirm -si
   args:
-      chdir: "{{ ansible_user_dir }}/repo/yay/"
+      chdir: "{{ ansible_user_dir }}/Development/repository/github.com/yay/"
       creates: /usr/bin/yay
