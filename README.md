@@ -38,5 +38,5 @@ sudo pacman -Sy
 Start my script with:
 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/leonvsc/dotfiles/main/bin/install)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/leonvsc/dotfiles/main/bin/dotfiles)"
 ```
