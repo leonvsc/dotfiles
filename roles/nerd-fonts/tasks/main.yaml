@@ -15,3 +15,4 @@
   ansible.builtin.shell: install.sh
   args:
       chdir: "{{ ansible_user_dir }}/Development/repository/github.com/nerd-fonts"
+  when: clone.changed
