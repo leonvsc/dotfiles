@@ -56,6 +56,6 @@
       version: master
 
 - name: Copy .p10k.zsh
-  ansible.builtin.template:
+  ansible.builtin.copy:
       dest: "{{ ansible_user_dir }}/.p10k.zsh"
-      src: .p10k.zsh.j2
+      src: "{{ ansible_user_dir }}/.dotfiles/roles/oh-my-zsh/templates/.p10k.zsh"
