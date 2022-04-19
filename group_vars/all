@@ -8,6 +8,8 @@ default_roles:
     - lxappearance
     - rofi
     - alacritty
+    - zsh
+    - oh-my-zsh
     - nitrogen
     - firefox
     - yay
