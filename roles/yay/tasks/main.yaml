@@ -24,3 +24,4 @@
   args:
       chdir: "{{ ansible_user_dir }}/Development/repository/github.com/yay/"
       creates: /usr/bin/yay
+  when: clone.changed
