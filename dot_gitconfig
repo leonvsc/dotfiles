@@ -1,0 +1,7 @@
+[user]
+	email = leonvsc@users.noreply.github.com
+	name = Leon
+[init]
+	defaultBranch = main
+[color]
+	ui = auto
