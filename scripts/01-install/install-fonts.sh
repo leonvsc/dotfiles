@@ -1,0 +1,3 @@
+#!/bin/bash
+
+pacman -S --noconfirm --needed nerd-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-liberation ttf-dejavu ttf-roboto ttf-jetbrain-mono ttf-fira-code ttf-hack adobe-source-code-pro-fonts ttf-cascadia-code inter-font cantarell-fonts
