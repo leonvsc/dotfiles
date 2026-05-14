@@ -1,2 +1,3 @@
+//@theme "~/.config/rofi/themes/everforest.rasi"
 
-@theme "/home/leon/.local/share/rofi/themes/everforest.rasi"
+@theme "/home/leon/.config/rofi/themes/everforest.rasi"

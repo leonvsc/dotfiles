@@ -47,7 +47,15 @@ run_script "scripts/02-services/enable-services.sh"
 
 echo
 echo "==> Step 3: Applying configuration"
+run_script "scripts/03-configure/install-oh-my-zsh.sh"
+run_script "scripts/03-configure/install-zsh-plugins.sh"
+run_script "scripts/03-configure/install-oh-my-tmux.sh"
 run_script "scripts/03-configure/setup-chezmoi.sh"
+run_script "scripts/03-configure/install-sddm-theme.sh"
+
+echo
+echo "==> Step 4: Finalizing setup"
+run_script "scripts/04-final/finalize.sh"
 
 echo
 echo "==> Installation completed"
