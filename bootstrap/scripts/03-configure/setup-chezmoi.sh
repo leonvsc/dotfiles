@@ -10,15 +10,6 @@ fi
 
 echo
 echo "==> Setting up chezmoi"
+echo "Using source directory: $REPO_ROOT"
 
-if [[ -d "$HOME/.local/share/chezmoi" ]]; then
-  echo "chezmoi source directory already exists."
-  echo "Applying dotfiles..."
-  chezmoi apply
-else
-  echo "Initializing chezmoi from local repository:"
-  echo "$REPO_ROOT"
-
-  chezmoi init --source="$REPO_ROOT"
-  chezmoi apply
-fi
+chezmoi apply --source="$REPO_ROOT"

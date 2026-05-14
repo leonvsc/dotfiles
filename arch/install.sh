@@ -74,14 +74,17 @@ mount_btrfs_subvolumes() {
   mount -o "$BTRFS_OPTIONS,subvol=@snapshots" "/dev/mapper/$CRYPT_NAME" /mnt/.snapshots
   mount -o "$BTRFS_OPTIONS,subvol=@var_log" "/dev/mapper/$CRYPT_NAME" /mnt/var/log
   mount -o "noatime,ssd,discard=async,space_cache=v2,subvol=@swap" "/dev/mapper/$CRYPT_NAME" /mnt/swap
-  mount "$EFI_PARTITION" /mnt/boot
+  mount -o umask=0077 "$EFI_PARTITION" /mnt/boot
 }
+
+echo "==> Starting Arch installer"
 
 [[ "$EUID" -eq 0 ]] || die "Run this script as root from the Arch ISO"
 [[ -d /sys/firmware/efi/efivars ]] || die "UEFI mode is required"
 [[ -f "$CONFIG_FILE" ]] || die "Config file not found: $CONFIG_FILE. Copy config.example.env to config.env first."
 [[ -f "$CHROOT_SCRIPT" ]] || die "chroot.sh not found: $CHROOT_SCRIPT"
 
+echo "==> Checking required commands"
 require_command arch-chroot
 require_command cryptsetup
 require_command genfstab
@@ -91,11 +94,13 @@ require_command pacstrap
 require_command ping
 require_command sgdisk
 
+echo "==> Loading config: $CONFIG_FILE"
 # shellcheck source=/dev/null
 source "$CONFIG_FILE"
 validate_config
 
-ping -c 3 archlinux.org >/dev/null || die "Internet connection check failed"
+echo "==> Checking internet connection"
+ping -W 5 -c 3 archlinux.org >/dev/null || die "Internet connection check failed"
 
 EFI_PARTITION="$(partition_path "$DISK" 1)"
 ROOT_PARTITION="$(partition_path "$DISK" 2)"

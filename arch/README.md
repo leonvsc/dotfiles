@@ -239,6 +239,15 @@ The encrypted root is unlocked through:
 rd.luks.name=<LUKS_UUID>=cryptroot
 ```
 
+The EFI partition is mounted with restrictive permissions:
+
+```text
+umask=0077
+```
+
+This prevents `bootctl` random-seed warnings about `/boot` being world
+accessible.
+
 ## After Installation
 
 When the installer finishes, reboot:
