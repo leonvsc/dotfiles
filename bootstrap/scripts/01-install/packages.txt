@@ -16,7 +16,7 @@ openssh
 pipewire
 pipewire-alsa
 pipewire-jack
-pipwire-pulse
+pipewire-pulse
 wireplumber
 plymouth
 podman
@@ -39,3 +39,4 @@ zsh
 chezmoi
 zsh-autosuggestions
 zsh-syntax-highlighting
+opencode

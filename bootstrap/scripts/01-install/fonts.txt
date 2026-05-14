@@ -6,7 +6,7 @@ noto-fonts-extra
 ttf-liberation
 ttf-dejavu
 ttf-roboto
-ttf-jetbrain-mono
+ttf-jetbrains-mono
 ttf-fira-code
 ttf-hack
 adobe-source-code-pro-fonts
