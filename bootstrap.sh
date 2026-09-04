@@ -3,6 +3,7 @@
 set -Eeuo pipefail
 
 REPO="leonvsc/dotfiles"
+DOTFILES_BRANCH="${DOTFILES_BRANCH:-main}"
 CHEZMOI_BIN="$HOME/.local/bin/chezmoi"
 
 # -----------------------------------------------------------------------------
@@ -96,7 +97,11 @@ info "chezmoi version: $("$CHEZMOI_BIN" --version)"
 
 info "Initializing dotfiles repository"
 
-"$CHEZMOI_BIN" init "$REPO"
+info "Initializing dotfiles repository from branch: $DOTFILES_BRANCH"
+
+"$CHEZMOI_BIN" init \
+    --branch "$DOTFILES_BRANCH" \
+    "$REPO"
 
 SOURCE_PATH="$("$CHEZMOI_BIN" source-path)"
 
