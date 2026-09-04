@@ -1,0 +1,110 @@
+# =============================================================================
+# PATH
+# =============================================================================
+
+export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
+
+
+# =============================================================================
+# Oh My Zsh
+# =============================================================================
+
+export ZSH="$HOME/.oh-my-zsh"
+
+# Oh My Posh manages the prompt, so no Oh My Zsh theme is needed.
+ZSH_THEME=""
+
+plugins=(
+    git
+    tmux
+    ssh-agent
+)
+
+# Only load custom plugins when they are actually installed.
+[[ -d "$ZSH/custom/plugins/zsh-syntax-highlighting" ]] \
+    && plugins+=(zsh-syntax-highlighting)
+
+[[ -d "$ZSH/custom/plugins/zsh-autosuggestions" ]] \
+    && plugins+=(zsh-autosuggestions)
+
+if [[ -f "$ZSH/oh-my-zsh.sh" ]]; then
+    source "$ZSH/oh-my-zsh.sh"
+fi
+
+
+# =============================================================================
+# Editor
+# =============================================================================
+
+if command -v nvim >/dev/null 2>&1; then
+    export EDITOR="nvim"
+    export VISUAL="nvim"
+elif command -v vim >/dev/null 2>&1; then
+    export EDITOR="vim"
+    export VISUAL="vim"
+elif command -v vi >/dev/null 2>&1; then
+    export EDITOR="vi"
+    export VISUAL="vi"
+fi
+
+
+# =============================================================================
+# Tool integrations
+# =============================================================================
+
+# Yazi shell wrapper
+if command -v yazi >/dev/null 2>&1; then
+    function y() {
+        local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+
+        command yazi "$@" --cwd-file="$tmp"
+
+        IFS= read -r -d '' cwd < "$tmp"
+
+        [[ "$cwd" != "$PWD" && -d "$cwd" ]] && builtin cd -- "$cwd"
+
+        rm -f -- "$tmp"
+    }
+fi
+
+# Lazygit
+if command -v lazygit >/dev/null 2>&1; then
+    alias lg="lazygit"
+fi
+
+# Lazydocker
+if command -v lazydocker >/dev/null 2>&1; then
+    alias ld="lazydocker"
+fi
+
+# ssh-pick
+if command -v ssh-pick >/dev/null 2>&1; then
+    alias s="ssh-pick"
+fi
+
+
+# =============================================================================
+# Desktop-specific configuration
+# =============================================================================
+
+{{- if eq .machineType "desktop" }}
+
+# Use Podman as Docker replacement on the desktop.
+if command -v podman >/dev/null 2>&1; then
+    alias docker="podman"
+
+    if [[ -S "$XDG_RUNTIME_DIR/podman/podman.sock" ]]; then
+        export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/podman/podman.sock"
+    fi
+fi
+
+{{- end }}
+
+
+# =============================================================================
+# Prompt
+# =============================================================================
+
+if command -v oh-my-posh >/dev/null 2>&1; then
+    eval "$(oh-my-posh init zsh --config "$HOME/powerlevel10k_modern.omp.json")"
+fi
