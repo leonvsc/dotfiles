@@ -1,1 +1,10 @@
-# Machine/profile specific excludes will be added here later.
+{{- if eq .machineType "server" }}
+
+.config/backgrounds
+.config/fontconfig
+.config/kitty
+.config/rofi
+.config/sway
+.config/waybar
+
+{{- end }}
