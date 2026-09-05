@@ -1,5 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "final_space": true,
   "version": 4,
 
   "blocks": [
@@ -24,8 +25,7 @@
           "powerline_symbol": "\ue0b0",
           "template": " \uf07c {{ .Path }} ",
           "options": {
-            "style": "powerlevel",
-            "max_width": 80
+            "style": "unique"
           }
         },
         {
@@ -38,7 +38,8 @@
           "options": {
             "branch_icon": "\uf126 ",
             "github_icon": "\uf09b",
-            "git_icon": "\uf1d3"
+            "git_icon": "\uf1d3",
+            "branch_template": "{{ if gt (len .Branch) 32 }}{{ trunc 12 .Branch }}…{{ trunc -12 .Branch }}{{ else }}{{ .Branch }}{{ end }}"
           }
         }
       ]
