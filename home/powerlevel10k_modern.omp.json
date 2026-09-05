@@ -140,7 +140,10 @@
           "type": "session",
           "style": "plain",
           "foreground": "#D4E157",
-          "template": "{{ if or .SSHSession .Root }} {{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}@{{ .HostName }} {{ end }}"
+          "foreground_templates": [
+            "{{ if .Root }}#FF5252{{ end }}"
+          ],
+          "template": "{{ if or .SSHSession .Root }} \ue0b2 {{ .UserName }}@{{ .HostName }} {{ end }}"
         },
 
         {
