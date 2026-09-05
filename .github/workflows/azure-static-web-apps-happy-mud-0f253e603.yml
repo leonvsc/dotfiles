@@ -22,16 +22,12 @@ jobs:
         run: |
           mkdir -p static
           cp bootstrap.sh static/bootstrap.sh
+          cp bootstrap.sh static/index.html
 
           cat > static/staticwebapp.config.json <<'EOF'
           {
-            "routes": [
-              {
-                "route": "/",
-                "rewrite": "/bootstrap.sh"
-              }
-            ],
             "mimeTypes": {
+              ".html": "text/plain",
               ".sh": "text/plain"
             }
           }
