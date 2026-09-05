@@ -143,7 +143,7 @@
           "foreground_templates": [
             "{{ if .Root }}#FF5252{{ end }}"
           ],
-          "template": "{{ if or .SSHSession .Root }} \ue0b2 {{ .UserName }}@{{ .HostName }} {{ end }}"
+          "template": "{{ if or .SSHSession .Root }} \ue0b3 {{ .UserName }}@{{ .HostName }} {{ end }}"
         },
 
         {
