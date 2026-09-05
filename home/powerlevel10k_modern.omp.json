@@ -158,11 +158,11 @@
 
         {
           "type": "executiontime",
-          "style": "powerline",
+          "style": "diamond",
           "foreground": "#000000",
           "background": "#D4E157",
-          "powerline_symbol": "\ue0b2",
-          "template": " \uf252 {{ .FormattedMs }} ",
+          "leading_diamond": "\ue0b2",
+          "template": " {{ .FormattedMs }} \uf252 ",
           "options": {
             "threshold": 3000,
             "style": "round"
